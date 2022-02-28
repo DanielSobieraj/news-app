@@ -1,0 +1,7 @@
+.menu {
+    &--item {
+        text-decoration: underline;
+        color: var(--bs-gray);
+        cursor: pointer;
+    }
+}

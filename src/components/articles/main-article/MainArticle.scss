@@ -1,0 +1,13 @@
+.mainArticle {
+    background: var(--bs-gray-900);
+    border-radius: 4px;
+    height: 362px;
+    background: var(--bs-gray-900);
+
+    &--item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--bs-white);
+    }
+}

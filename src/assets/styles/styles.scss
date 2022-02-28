@@ -1,0 +1,21 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    padding: 0;
+}
+
+a,
+a:hover {
+    color: unset;
+}
+
+h1,
+h2 {
+    font-family: 'Playfair Display';
+}
+
+p,
+a,
+span {
+    font-family: 'Roboto';
+}
