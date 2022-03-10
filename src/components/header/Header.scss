@@ -1,18 +1,20 @@
 .header {
     &--subscribe {
-        font: 16px;
+        font-size: 16px;
         text-decoration: underline;
         color: var(--bs-gray);
         cursor: pointer;
     }
 
     &--title {
-        font: 36px 54px;
+        font-size: 36px;
+        line-height: 54px;
+        font-weight: 400;
         text-decoration: underline;
     }
 
     &--signup {
-        font: 14px;
+        font-size: 14px;
         color: var(--bs-gray);
         padding: 3px 10px 7px;
         border: 1px solid var(--bs-gray);

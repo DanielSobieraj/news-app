@@ -1,4 +1,4 @@
-export const MenuItems = [
+export const menuItems = [
     {
         name: 'World',
         route: '/world',
