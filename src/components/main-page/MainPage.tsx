@@ -1,31 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import { getArticlesRequest } from '../../api/apiClient';
-import { ArticlesResponseProps } from '../../api/response/ArticlesResponseProps';
+import { getArticlesRequest, getSourcesRequest } from '../../api/apiClient';
+import { EndpointType } from '../../common/enum/EndpointType';
 import Article from '../articles/article/Article';
+import { ArticleProps } from '../articles/article/ArticleProps';
 import MainArticle from '../articles/main-article/MainArticle';
 
 const MainPage = () => {
-    const [articles, setArticles] = useState<ArticlesResponseProps>();
-    const [pageSize, setPageSize] = useState(5);
+    const [articles, setArticles] = useState<ArticleProps[]>([]);
+    const [page, setPage] = useState(1);
+    const [categories, setCategories] = useState<Record<string, string>>({});
 
     useEffect(() => {
-        async function getArticles() {
-            const response = await getArticlesRequest(`everything`, { q: 'bitcoin', pageSize });
-            setArticles(response);
-        }
+        const getArticles = async () => {
+            const response = await getArticlesRequest(EndpointType.Everyting, {
+                q: 'bitcoin',
+                language: 'en',
+                pageSize: 5,
+                page,
+            });
+            setArticles((articles) => [...articles, ...response.articles]);
+        };
         getArticles();
-    }, [pageSize]);
+    }, [page]);
 
-    const handleLoadMoreBtn = () => setPageSize((prevPageSize) => prevPageSize + 5);
+    useEffect(() => {
+        const getSources = async () => {
+            const response = await getSourcesRequest(EndpointType.Sources, { country: 'us' });
+            const sourceCategoriesMapped = response.sources.map(({ name, category }) => [name, category]);
+            setCategories(Object.fromEntries(sourceCategoriesMapped));
+        };
+        getSources();
+    }, []);
+
+    const handleLoadMoreBtn = () => setPage((prevPageSize) => prevPageSize + 1);
 
     return (
         <div className="my-4">
             <MainArticle />
             <div className="row">
-                {articles?.articles.map(({ title, publishedAt, description, url, urlToImage }, key) => (
+                {articles.map(({ title, publishedAt, description, url, urlToImage, source }, key) => (
                     <div className="col-md-6" key={key}>
                         <Article
                             title={title}
+                            category={categories[source?.name ?? '']}
                             publishedAt={publishedAt}
                             description={description}
                             url={url}

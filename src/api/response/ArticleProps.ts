@@ -10,6 +10,6 @@ export interface ArticleProps {
 }
 
 export interface Source {
-    id: string;
+    id: string | null;
     name: string;
 }

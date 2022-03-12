@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { getMainArticleRequest } from '../../../api/apiClient';
 import { MainArticleResponseProps } from '../../../api/response/MainArticleResponseProps';
+import { EndpointType } from '../../../common/enum/EndpointType';
 import './MainArticle.scss';
 
 const MainArticle = () => {
@@ -8,7 +9,7 @@ const MainArticle = () => {
 
     useEffect(() => {
         const getMainArticle = async () => {
-            const response = await getMainArticleRequest('top-headlines', { pageSize: 1, country: 'us' });
+            const response = await getMainArticleRequest(EndpointType.MainArticle, { pageSize: 1, country: 'us' });
             setMainArticle(response);
         };
         getMainArticle();
