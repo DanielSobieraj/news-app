@@ -1,6 +1,6 @@
-import './Header.scss';
-import { ReactComponent as Search } from '../../assets/images/svg/search.svg';
 import React from 'react';
+import { ReactComponent as Search } from '../../assets/images/svg/search.svg';
+import './Header.scss';
 
 const Header = () => {
     return (

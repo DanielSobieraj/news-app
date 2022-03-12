@@ -32,7 +32,7 @@ const MainPage = () => {
         getSources();
     }, []);
 
-    const handleLoadMoreBtn = () => setPage((prevPageSize) => prevPageSize + 1);
+    const handleLoadMoreClick = () => setPage((prevPageSize) => prevPageSize + 1);
 
     return (
         <div className="my-4">
@@ -52,7 +52,7 @@ const MainPage = () => {
                 ))}
             </div>
             <div className="col-col-md-12 text-center mb-3">
-                <button type="button" className="btn btn-outline-dark" onClick={handleLoadMoreBtn}>
+                <button type="button" className="btn btn-outline-dark" onClick={handleLoadMoreClick}>
                     Load more...
                 </button>
             </div>
