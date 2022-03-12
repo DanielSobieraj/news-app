@@ -8,7 +8,7 @@ const Article: FC<ArticleProps> = ({ title, description, url, urlToImage, publis
         <article className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm article">
             <div className="col p-4 d-flex flex-column position-static ">
                 <h3 className="mb-0 article--title article--text__limit">{title}</h3>
-                <p>{dayjs(publishedAt).format('MMM DD')}</p>
+                <p className="article--date">{dayjs(publishedAt).format('MMM DD')}</p>
                 <p className="article--text__limit card-text mb-auto">{description}</p>
                 <a className="color-primary" href={url} target="blank">
                     Continue reading
