@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+:root {
+    --articleBg: #ececec;
+}
+
 body {
     padding: 0;
 }
@@ -13,4 +17,20 @@ p,
 a,
 span {
     font-family: 'Roboto';
+}
+
+.clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.mainArticle-clamp {
+    @extend .clamp;
+    -webkit-line-clamp: 4;
+}
+
+.text-clamp {
+    @extend .clamp;
+    -webkit-line-clamp: 2;
 }

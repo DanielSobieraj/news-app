@@ -1,9 +1,18 @@
 .article {
-    height: 250px;
-    background: #ececec;
+    height: 296px;
+    background: var(--articleBg);
 
-    &--item {
-        color: var(--bs-body-color);
+    @media (min-width: 768px) {
+        height: 250px;
+    }
+
+    &--textItem {
+        height: 100%;
+        padding: 22px 25px 28px;
+
+        @media (min-width: 768px) {
+            padding: 22px 32px 15px 25px;
+        }
     }
 
     &--date {
@@ -27,14 +36,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #ececec;
+            background: var(--articleBg);
         }
-    }
-
-    &--text__limit {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
     }
 }

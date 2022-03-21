@@ -1,5 +1,6 @@
 import React from 'react';
 import './assets/styles/styles.scss';
+import { SearchModalProvider } from './common/context/SearchModalContext';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import MainPage from './components/main-page/MainPage';
@@ -11,7 +12,9 @@ const App = () => {
             <div className="container">
                 <Header />
                 <NavMenu />
-                <MainPage />
+                <SearchModalProvider>
+                    <MainPage />
+                </SearchModalProvider>
             </div>
             <div className="row">
                 <Footer />

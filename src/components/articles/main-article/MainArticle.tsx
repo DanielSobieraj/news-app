@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { getMainArticleRequest } from '../../../api/apiClient';
 import { MainArticleResponseProps } from '../../../api/response/MainArticleResponseProps';
-import { EndpointType } from '../../../common/enum/EndpointType';
+import { Endpoint } from '../../../common/enum/Endpoint';
 import './MainArticle.scss';
 
 const MainArticle = () => {
@@ -9,7 +9,7 @@ const MainArticle = () => {
 
     useEffect(() => {
         const getMainArticle = async () => {
-            const response = await getMainArticleRequest(EndpointType.MainArticle, { pageSize: 1, country: 'us' });
+            const response = await getMainArticleRequest(Endpoint.MainArticle, { pageSize: 1, country: 'us' });
             setMainArticle(response);
         };
         getMainArticle();
@@ -20,8 +20,8 @@ const MainArticle = () => {
             {mainArticle?.articles.map(({ title, description, url }, index) => {
                 return (
                     <article className="col-md-6 mainArticle--item" key={index}>
-                        <h2>{title}</h2>
-                        <p>{description}</p>
+                        <h1>{title}</h1>
+                        <p className="lead my-3 mainArticle-clamp">{description}</p>
                         <a href={url} target="_blank" rel="noreferrer">
                             Continue reading...
                         </a>

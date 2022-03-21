@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getArticlesRequest, getSourcesRequest } from '../../api/apiClient';
-import { EndpointType } from '../../common/enum/EndpointType';
+import { SearchModalContext } from '../../common/context/contexts';
+import { Endpoint } from '../../common/enum/Endpoint';
 import Article from '../articles/article/Article';
 import { ArticleProps } from '../articles/article/ArticleProps';
 import MainArticle from '../articles/main-article/MainArticle';
@@ -9,11 +10,14 @@ const MainPage = () => {
     const [articles, setArticles] = useState<ArticleProps[]>([]);
     const [page, setPage] = useState(1);
     const [categories, setCategories] = useState<Record<string, string>>({});
+    const searchModalValue = useContext(SearchModalContext);
+
+    console.log(searchModalValue);
 
     useEffect(() => {
         const getArticles = async () => {
-            const response = await getArticlesRequest(EndpointType.Everyting, {
-                q: 'bitcoin',
+            const response = await getArticlesRequest(Endpoint.Everyting, {
+                q: searchModalValue,
                 language: 'en',
                 pageSize: 5,
                 page,
@@ -21,11 +25,11 @@ const MainPage = () => {
             setArticles((articles) => [...articles, ...response.articles]);
         };
         getArticles();
-    }, [page]);
+    }, [page, searchModalValue]);
 
     useEffect(() => {
         const getSources = async () => {
-            const response = await getSourcesRequest(EndpointType.Sources, { country: 'us' });
+            const response = await getSourcesRequest(Endpoint.Sources, { country: 'us' });
             const sourceCategoriesMapped = response.sources.map(({ name, category }) => [name, category]);
             setCategories(Object.fromEntries(sourceCategoriesMapped));
         };
