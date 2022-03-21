@@ -16,7 +16,7 @@ const MainArticle = () => {
     }, []);
 
     return (
-        <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark mainArticle">
+        <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark mainArticle" data-testid="mainArticle">
             {mainArticle?.articles.map(({ title, description, url }, index) => {
                 return (
                     <article className="col-md-6 mainArticle--item" key={index}>

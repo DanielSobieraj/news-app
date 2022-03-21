@@ -9,7 +9,7 @@ const Header = () => {
             <h1 className="header--title">NewsWeb</h1>
             <div className="d-flex align-items-center">
                 <Search className="mx-3" />
-                <span className="header--signup">Sign up</span>
+                <button className="header--signup">Sign up</button>
             </div>
         </header>
     );
