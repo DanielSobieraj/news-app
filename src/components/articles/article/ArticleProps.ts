@@ -1,4 +1,5 @@
-import { Source } from '../../../api/response/ArticleProps';
+import { Source } from '../../../common/interfaces/Source';
+import { Category } from '../../../common/types/Category';
 
 export interface ArticleProps {
     title: string;
@@ -6,6 +7,6 @@ export interface ArticleProps {
     publishedAt: Date;
     urlToImage: string;
     url: string;
-    category?: string;
+    category?: Category | string;
     source?: Source;
 }

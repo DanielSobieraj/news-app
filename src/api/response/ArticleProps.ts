@@ -1,3 +1,5 @@
+import { Source } from '../../common/interfaces/Source';
+
 export interface ArticleProps {
     author: string;
     content: string;
@@ -7,9 +9,4 @@ export interface ArticleProps {
     title: string;
     url: string;
     urlToImage: string;
-}
-
-export interface Source {
-    id: string | null;
-    name: string;
 }

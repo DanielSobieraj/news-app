@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useWindowSize } from '../../common/helpers/windowHelper';
 import { MEDIUM_DEVICE } from '../../common/variables/breakpoints';
-import { menuItems } from './menuItems';
+import { menuItems } from './MenuItems';
 import './NavMenu.scss';
 
 const NavMenu = () => {

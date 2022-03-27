@@ -1,3 +1,5 @@
+import { Category } from '../../common/types/Category';
+
 export interface MainArticleRequestProps {
     country?:
         | 'ae'
@@ -54,7 +56,7 @@ export interface MainArticleRequestProps {
         | 'us'
         | 've'
         | 'za';
-    category?: 'business' | 'entertainment' | 'general' | 'health' | 'science' | 'sports' | 'technology';
+    category?: Category;
     sources?: string;
     q?: string;
     pageSize?: number;

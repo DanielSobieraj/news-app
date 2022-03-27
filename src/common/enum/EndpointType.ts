@@ -1,5 +1,5 @@
 export enum EndpointType {
-    Everyting = 'everything',
+    Everything = 'everything',
     MainArticle = 'top-headlines',
     Sources = 'top-headlines/sources',
 }

@@ -1,3 +1,4 @@
+import { Language } from './../../common/types/Language';
 export interface ArticlesRequestProps {
     q: string;
     searchIn?: 'title' | 'description' | 'content';
@@ -6,7 +7,7 @@ export interface ArticlesRequestProps {
     excludeDomains?: string;
     from?: Date;
     to?: Date;
-    language?: 'ar' | 'de' | 'en' | 'es' | 'fr' | 'he' | 'it' | 'nl' | 'no' | 'pt' | 'ru' | 'se' | 'ud' | 'zh';
+    language?: Language;
     sortBy?: 'relevancy' | 'popularity' | 'publishedAt';
     pageSize?: number;
     page?: number;
