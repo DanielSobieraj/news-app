@@ -10,7 +10,13 @@ const { REACT_APP_API_BASE_URL, REACT_APP_NEWS_APP_API_KEY } = process.env;
 // eslint-disable-next-line @typescript-eslint/ban-types
 const apiClient = (endpoint: string, data?: {}) =>
     fetch(`${REACT_APP_API_BASE_URL}/${endpoint}?` + new URLSearchParams(data), {
-        headers: { 'X-API-KEY': REACT_APP_NEWS_APP_API_KEY ?? '' },
+        headers: {
+            'X-API-KEY': REACT_APP_NEWS_APP_API_KEY ?? '',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTION',
+        },
     });
 
 export const getMainArticleRequest = async (
