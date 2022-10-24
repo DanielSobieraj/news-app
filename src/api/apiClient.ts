@@ -14,7 +14,7 @@ const apiClient = (endpoint: string, data?: {}) =>
         headers: {
             'X-API-KEY': REACT_APP_NEWS_APP_API_KEY ?? '',
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://dsnewsapp.netlify.app',
+            'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Allow-Methods': 'GET, POST, OPTION',
             'Access-Control-Allow-Credentials': 'true',
