@@ -12,10 +12,6 @@ const apiClient = (endpoint: string, data?: {}) =>
     fetch(`${REACT_APP_API_BASE_URL}/${endpoint}?` + new URLSearchParams(data), {
         headers: {
             'X-API-KEY': REACT_APP_NEWS_APP_API_KEY ?? '',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Methods': 'GET, POST, OPTION',
         },
     });
 
