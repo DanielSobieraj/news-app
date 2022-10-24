@@ -12,7 +12,7 @@ const MainPage = () => {
 
     useEffect(() => {
         const getArticles = async () => {
-            const response = await getArticlesRequest(EndpointType.Everyting, {
+            const response = await getArticlesRequest(EndpointType.Everything, {
                 q: 'bitcoin',
                 language: 'en',
                 pageSize: 5,

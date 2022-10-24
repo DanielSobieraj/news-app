@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { memo } from 'react';
 import './Footer.scss';
 
